@@ -20,23 +20,28 @@ export const Cards = ({ className }: CardsProps) => {
                 />
                 <hr className={styles.postHr} />
             </div>
-            <span className={styles.postIcon}>
-                <button className={styles.iconPost}>
-                    <img
-                        src="https://img.icons8.com/material-outlined/24/null/add-image.png"
-                        className={styles.imgIcon}
-                    />
-                </button>
-                <button className={styles.iconPost}>
-                    <img
-                        src="https://img.icons8.com/material-outlined/24/null/video.png"
-                        className={styles.imgIcon}
-                    />
-                </button>
-                <span>
-                    <button className={styles.sendButton}></button>text
+            <div className={styles.postBoxL}>
+                <span className={styles.postIcon}>
+                    <button className={styles.iconPost}>
+                        <img
+                            src="https://img.icons8.com/material-outlined/24/null/add-image.png"
+                            className={styles.imgIcon}
+                        />
+                    </button>
+                    <button className={styles.iconPost}>
+                        <img
+                            src="https://img.icons8.com/material-outlined/24/null/video.png"
+                            className={styles.imgIcon}
+                        />
+                    </button>
                 </span>
-            </span>
+                <div className={styles.postL}>
+                    <img
+                        src="https://img.icons8.com/small/32/6309de/filled-sent.png"
+                        className={styles.sendButton}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

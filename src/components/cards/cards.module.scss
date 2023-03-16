@@ -10,7 +10,7 @@
   width: auto;
   align-items: center;
   justify-items: center;
-  margin: 6%;
+  margin: 3%;
 }
 .postBox {
   width: 100%;
@@ -40,21 +40,22 @@
   width: 100%;
   border: 1px solid #b3b3b3;
   overflow: auto;
+  margin: 15px 0px;
 }
 .postIcon {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-around;
   align-content: center;
   justify-items: start;
   align-items: start;
-  width: 100%;
   height: auto;
+  width: auto;
 }
 .iconPost {
   display: flex;
   flex-direction: row;
-  margin: 5px;
+  margin: 10px;
   align-items: center;
   justify-items: center;
   gap: 1px;
@@ -64,8 +65,23 @@
 }
 .sendButton {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: end;
   position: static;
-  justify-items: end;
+  justify-items: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+.postBoxL {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.postIconL {
+}
+.postL {
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }

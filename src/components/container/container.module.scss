@@ -2,7 +2,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   padding: 0%;
-  margin: 6% 0px 0px 0%;
+  margin: 5% 0px 0px 0%;
   background-image: none;
   background-color: white;
   display: flex;
@@ -12,10 +12,11 @@
   align-self: center;
   flex-direction: column;
   justify-content: start;
-  border: 1px solid black;
+  border: 1px solid #b3b3b3;
   left: 8%;
   align-content: start;
   overflow: visible;
+  height: auto;
+  border-radius: 15px;
   min-width: 50%;
-  height: 500px;
 }

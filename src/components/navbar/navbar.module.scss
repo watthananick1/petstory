@@ -7,9 +7,10 @@
   position: fixed;
   align-self: start;
   height: 6.5%;
-  padding: 5px;
-  margin-bottom: 10px;
+  padding: 2px;
+  margin-bottom: 0px;
   z-index: 1;
+  font-weight: 500;
 }
 .navberTop {
   width: 100%;
@@ -33,8 +34,8 @@
 .navberCon {
   display: flex;
   flex-direction: row;
-  align-items: start;
-  justify-items: start;
+  align-items: center;
+  justify-items: center;
   gap: 20px;
   overflow: visible;
   position: sticky;
