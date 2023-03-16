@@ -1,0 +1,19 @@
+.root {
+  display: block;
+  position: static;
+  margin: 2px;
+  border: 0px solid #e6e6e6;
+  overflow: hidden;
+  border-radius: 50px;
+}
+.iconButton {
+  display: flex;
+  background-color: 0;
+}
+.iconImg {
+  height: auto;
+  width: auto;
+  border-radius: 50em;
+  display: block;
+  overflow: hidden;
+}

@@ -1,0 +1,37 @@
+.root {
+  width: 100%;
+  background-color: #fff;
+  background-image: none;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-self: start;
+  height: 50px;
+}
+.navberTop {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  padding: 10px;
+}
+.logo {
+  margin: 0rem 10% 0rem 0rem;
+  display: flex;
+  color: #6309de;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  width: 30%;
+}
+.navberCon {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-items: start;
+  gap: 20px;
+  overflow: visible;
+  width: 50%;
+  position: sticky;
+  left: 50%;
+}

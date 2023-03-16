@@ -1,0 +1,66 @@
+.root {
+  width: 100%;
+  background-color: #fff;
+  background-image: none;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-self: start;
+  height: 6.5%;
+  padding: 5px;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+.navberTop {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  padding: 10px;
+  position: sticky;
+  justify-content: space-between;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+.logo {
+  margin: 0rem 10% 0rem 0rem;
+  display: flex;
+  color: #6309de;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+.navberCon {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-items: start;
+  gap: 20px;
+  overflow: visible;
+  position: sticky;
+  flex-wrap: nowrap;
+  justify-content: end;
+  left: 60%;
+  min-height: 35px;
+  margin-left: 0px;
+}
+.iconImg {
+  font-size: auto;
+  display: flex;
+  overflow: auto;
+  width: auto;
+  margin: 0px;
+  align-items: center;
+  height: auto;
+  justify-items: center;
+  min-width: auto;
+  min-height: auto;
+  max-height: 30px;
+  max-width: 30px;
+}
+.imgProfile {
+  min-width: 30px;
+  min-height: auto;
+  max-width: 40px;
+  max-height: 30px;
+}

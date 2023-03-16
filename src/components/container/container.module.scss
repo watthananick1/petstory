@@ -1,0 +1,21 @@
+.root {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0%;
+  margin: 6% 0px 0px 0%;
+  background-image: none;
+  background-color: white;
+  display: flex;
+  position: static;
+  top: 3%;
+  right: 2%;
+  align-self: center;
+  flex-direction: column;
+  justify-content: start;
+  border: 1px solid black;
+  left: 8%;
+  align-content: start;
+  overflow: visible;
+  min-width: 50%;
+  height: 500px;
+}
