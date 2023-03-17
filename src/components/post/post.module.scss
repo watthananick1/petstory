@@ -1,0 +1,87 @@
+.root {
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+  justify-content: space-between;
+  position: static;
+  margin: 1% 25% 0%;
+  align-content: space-between;
+  gap: 0px;
+  width: auto;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 15px;
+  padding: 10px;
+}
+.imgProflie {
+  display: block;
+  width: 59px;
+  height: 59px;
+  border-radius: 60px;
+  padding: 0px 0% 0px 0px;
+  margin-right: 1%;
+}
+.postTitleBox {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+}
+.post_Name {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  justify-items: start;
+  align-items: start;
+}
+.post_Pro_Img {
+  padding: 0px 1rem 0px 0px;
+}
+.post_Pro_name {
+  height: auto;
+  font-weight: 500;
+  font-size: 18px;
+  width: auto;
+  padding: 0px 0px 5px;
+}
+.postTime {
+  display: flex;
+  color: #b3b3b3;
+  font-weight: 500;
+  font-size: 13px;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  justify-content: start;
+}
+.post_Num_Time {
+  padding: 0px 10px 0px 0px;
+}
+.post_Body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+}
+.post_desc {
+  display: flex;
+  justify-items: start;
+  text-align: start;
+  font-size: 15px;
+  margin-bottom: 2px;
+  margin-top: 25px;
+}
+.post_Tag {
+  display: flex;
+  justify-items: start;
+  align-items: start;
+}
+.post_Tag_Item {
+  font-size: 15px;
+  font-weight: 500;
+  color: #6309de;
+}

@@ -13,7 +13,9 @@ export interface ContainerProps {
 export const Container = ({ className }: ContainerProps) => {
     return (
         <div className={classNames(styles.root, className)}>
-            <Cards />
+            <div className={styles.cardTemp}>
+                <Cards />
+            </div>
         </div>
     );
 };

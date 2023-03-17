@@ -22,24 +22,26 @@ export const Cards = ({ className }: CardsProps) => {
             </div>
             <div className={styles.postBoxL}>
                 <span className={styles.postIcon}>
-                    <button className={styles.iconPost}>
+                    <a href="/" className={styles.iconPost}>
                         <img
                             src="https://img.icons8.com/material-outlined/24/null/add-image.png"
                             className={styles.imgIcon}
                         />
-                    </button>
-                    <button className={styles.iconPost}>
+                    </a>
+                    <a href="/" className={styles.iconPost}>
                         <img
                             src="https://img.icons8.com/material-outlined/24/null/video.png"
                             className={styles.imgIcon}
                         />
-                    </button>
+                    </a>
                 </span>
                 <div className={styles.postL}>
-                    <img
-                        src="https://img.icons8.com/small/32/6309de/filled-sent.png"
-                        className={styles.sendButton}
-                    />
+                    <a href="/">
+                        <img
+                            src="https://img.icons8.com/small/32/6309de/filled-sent.png"
+                            className={styles.sendButton}
+                        />
+                    </a>
                 </div>
             </div>
         </div>
