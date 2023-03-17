@@ -27,15 +27,32 @@ export const Post = ({ className }: PostProps) => {
                     </span>
                 </span>
             </span>
-            <span>
-                <span className={styles.post_Body}>
-                    <div className={styles.post_desc}>
-                        This is a picture of my lovely dog. Watch it grow beautifully.
-                    </div>
-                    <span className={styles.post_Tag}>
-                        <div className={styles.post_Tag_Item}>#hedgehog</div>
-                    </span>
+            <span className={styles.post_Body}>
+                <div className={styles.post_desc}>
+                    This is a picture of my lovely dog. Watch it grow beautifully.
+                </div>
+                <span className={styles.post_Tag}>
+                    <div className={styles.post_Tag_Item}>#hedgehog</div>
                 </span>
+            </span>
+            <div className={styles.Post_Body_img}>
+                <img
+                    src="https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
+                    className={styles.post_img}
+                />
+                <hr className={styles.post_Boby_hr} />
+            </div>
+            <span className={styles.post_Action}>
+                <a href="/" className={styles.post_Action_a}>
+                    <img
+                        src="https://img.icons8.com/ios-glyphs/30/6309de/hearts.png"
+                        className={styles.post_Action_icon}
+                    />
+                </a>
+                <a href="/" className={styles.post_Action_a}>
+                    <div />
+                    comment...
+                </a>
             </span>
         </div>
     );

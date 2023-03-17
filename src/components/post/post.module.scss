@@ -7,8 +7,8 @@
   justify-content: space-between;
   position: static;
   margin: 1% 25% 0%;
-  align-content: space-between;
-  gap: 0px;
+  align-content: end;
+  gap: 1px;
   width: auto;
   background-color: white;
   border: 1px solid #e6e6e6;
@@ -37,6 +37,8 @@
   justify-content: start;
   justify-items: start;
   align-items: start;
+  min-height: auto;
+  min-width: 100px;
 }
 .post_Pro_Img {
   padding: 0px 1rem 0px 0px;
@@ -44,15 +46,16 @@
 .post_Pro_name {
   height: auto;
   font-weight: 500;
-  font-size: 18px;
+  font-size: auto;
   width: auto;
   padding: 0px 0px 5px;
+  min-width: 100px;
 }
 .postTime {
   display: flex;
   color: #b3b3b3;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 15px;
   flex-direction: row;
   justify-items: start;
   align-items: center;
@@ -65,23 +68,65 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-items: center;
+  justify-items: start;
+  margin-right: 3%;
+  margin-left: 3%;
+  font-size: 15px;
 }
 .post_desc {
   display: flex;
   justify-items: start;
   text-align: start;
   font-size: 15px;
-  margin-bottom: 2px;
-  margin-top: 25px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-right: 0%;
+  margin-left: 0%;
 }
 .post_Tag {
   display: flex;
   justify-items: start;
   align-items: start;
+  width: 100%;
 }
 .post_Tag_Item {
   font-size: 15px;
   font-weight: 500;
   color: #6309de;
+  padding: 5px;
+}
+.post_Boby_hr {
+  width: 100%;
+  margin: 3%;
+  padding: 0%;
+}
+.Post_Body_img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: auto;
+}
+.post_img {
+  max-width: 100%;
+}
+.post_Action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+.post_Action_icon {
+  max-width: 39px;
+  max-height: 39px;
+}
+.post_Action_a {
+  margin-right: 10px;
+}
+.post_Action_div {
+}
+.post_text_div {
+}
+.text_comment {
 }
