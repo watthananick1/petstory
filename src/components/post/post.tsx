@@ -12,6 +12,12 @@ export interface PostProps {
 export const Post = ({ className }: PostProps) => {
     return (
         <div className={classNames(styles.root, className)}>
+            <div className={styles.icon_menu}>
+                <img
+                    src="https://img.icons8.com/external-regular-kawalan-studio/24/null/external-kebab-menu-user-interface-regular-kawalan-studio.png"
+                    className={styles.post_icon}
+                />
+            </div>
             <span className={styles.postTitleBox}>
                 <div className={styles.post_Pro_Img}>
                     <img
@@ -40,6 +46,16 @@ export const Post = ({ className }: PostProps) => {
                     src="https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
                     className={styles.post_img}
                 />
+                <div className={styles.item_status}>
+                    <span className={styles.post_Body_Status}>
+                        <div className={styles.num_like}>100</div>
+                        <div className={styles.num_like}>Like</div>
+                    </span>
+                    <span className={styles.post_Body_Status}>
+                        <div className={styles.num_like}>2</div>
+                        <div className={styles.num_like}>Comment</div>
+                    </span>
+                </div>
                 <hr className={styles.post_Boby_hr} />
             </div>
             <span className={styles.post_Action}>
@@ -50,7 +66,6 @@ export const Post = ({ className }: PostProps) => {
                     />
                 </a>
                 <a href="/" className={styles.post_Action_a}>
-                    <div />
                     comment...
                 </a>
             </span>

@@ -13,7 +13,9 @@ export const Seach = ({ className }: SeachProps) => {
     return (
         <div className={classNames(styles.root, className)}>
             <input className={styles.input} placeholder="Search..." />
-            <button className={styles.button}>Search</button>
+            <button className={styles.button}>
+                <img src="https://img.icons8.com/ios-glyphs/30/6309de/search--v1.png" />
+            </button>
         </div>
     );
 };

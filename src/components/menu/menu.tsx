@@ -14,24 +14,26 @@ const Genre: string[] = ['Cat', 'Dog', 'Hamster'];
 export const Menu = ({ className }: MenuProps) => {
     return (
         <div className={classNames(styles.root, className)}>
-            <span className={styles.title}>Sort By</span>
-            <hr className={styles.hr} />
-            <ul className={styles.list}>
-                {sortBy.map((item) => (
-                    <li className={styles.listItem} key={item}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
-            <span className={styles.title}>Genre</span>
-            <hr className={styles.hr} />
-            <ul className={styles.list}>
-                {Genre.map((item) => (
-                    <li className={styles.listItem} key={item}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
+            <div>
+                <span className={styles.title}>Sort By</span>
+                <hr className={styles.hr} />
+                <ul className={styles.list}>
+                    {sortBy.map((item) => (
+                        <li className={styles.listItem} key={item}>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+                <span className={styles.title}>Genre</span>
+                <hr className={styles.hr} />
+                <ul className={styles.list}>
+                    {Genre.map((item) => (
+                        <li className={styles.listItem} key={item}>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };

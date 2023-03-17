@@ -11,9 +11,9 @@ function App() {
             <Navbar />
             <Menu />
             <Container />
-            < Post />
-            < Post />
-            < Post />
+            <Post />
+            <Post />
+            <Post />
         </div>
     );
 }

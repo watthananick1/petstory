@@ -23,12 +23,12 @@ export const Navbar = ({ className }: NavbarProps) => {
                             className={styles.iconImg}
                         />
                     </a>
-                    <a href="/projects">
+                    <div className={styles.nav_img_Profile}>
                         <img
-                            src="https://img.icons8.com/office/16/null/user.png"
+                            src="https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
                             className={styles.imgProfile}
                         />
-                    </a>
+                    </div>
                     <a href="/about">
                         <img
                             src="https://img.icons8.com/metro/26/null/menu.png"
