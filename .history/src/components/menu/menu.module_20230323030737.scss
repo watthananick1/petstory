@@ -2,14 +2,14 @@
   flex-grow: 1;
   flex-shrink: 1;
   color: #6309de;
-  padding: 0;
+  //padding: 0;
   display: flex;
   flex-direction: column;
   gap: 1px;
   position: fixed;
   top: auto;
   left: 0;
-  margin-top: 5% ;
+  margin-top: 5%;
   justify-content: space-between;
   justify-items: center;
   align-items: stretch;
@@ -26,11 +26,6 @@
     margin-top: 0;
     width: 100%;
     height: auto;
-    margin-top: 10% auto;
-  }
-  
-  @media (min-width: 768px) {
-    margin-top: 5% auto;
   }
 }
 .logo {

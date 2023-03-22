@@ -74,6 +74,7 @@ export const Menu = ({ className }: MenuProps) => {
                     >
                         <Paper elevation={0} sx={{ width: '100%' }}>
                             <FireNav component="nav" disablePadding>
+
                                 <Divider />
                                 <Box
                                     sx={{
@@ -118,7 +119,6 @@ export const Menu = ({ className }: MenuProps) => {
                                                 transition: '0.2s',
                                             }}
                                         />
-                                    {/* <Divider /> */}
                                     </ListItemButton>
                                     {open &&
                                         data.map((item) => (

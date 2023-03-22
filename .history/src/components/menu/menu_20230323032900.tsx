@@ -118,7 +118,7 @@ export const Menu = ({ className }: MenuProps) => {
                                                 transition: '0.2s',
                                             }}
                                         />
-                                    {/* <Divider /> */}
+                                    <Divider />
                                     </ListItemButton>
                                     {open &&
                                         data.map((item) => (

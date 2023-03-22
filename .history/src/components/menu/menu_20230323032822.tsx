@@ -74,6 +74,70 @@ export const Menu = ({ className }: MenuProps) => {
                     >
                         <Paper elevation={0} sx={{ width: '100%' }}>
                             <FireNav component="nav" disablePadding>
+                                {/* <ListItemButton component="a" href="#customized-list"> */}
+                                {/* <ListItemText
+                                        sx={{ my: 0 }}
+                                        primary="Firebash"
+                                        primaryTypographyProps={{
+                                            fontSize: 20,
+                                            fontWeight: 'medium',
+                                            letterSpacing: 0,
+                                        // }}
+                                    // /> 
+                                </ListItemButton>
+                                {/* <Divider /> */}
+                                {/* <ListItem component="div" disablePadding> */}
+                                {/* <ListItemButton sx={{ height: 56 }}>
+                                        <ListItemIcon>
+                                            <Home color="primary" />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            primary="Project Overview"
+                                            primaryTypographyProps={{
+                                                color: 'primary',
+                                                fontWeight: 'medium',
+                                                variant: 'body2',
+                                            }}
+                                        />
+                                    </ListItemButton> */}
+                                {/* <Tooltip title="Project Settings">
+                                        <IconButton
+                                            size="large"
+                                            sx={{
+                                                '& svg': {
+                                                    color: '#212121',
+                                                    transition: '0.2s',
+                                                    transform: 'translateX(0) rotate(0)',
+                                                },
+                                                '&:hover, &:focus': {
+                                                    bgcolor: 'unset',
+                                                    '& svg:first-of-type': {
+                                                        transform:
+                                                            'translateX(-4px) rotate(-20deg)',
+                                                    },
+                                                    '& svg:last-of-type': {
+                                                        right: 0,
+                                                        opacity: 1,
+                                                    },
+                                                },
+                                                '&:after': {
+                                                    content: '""',
+                                                    position: 'absolute',
+                                                    height: '80%',
+                                                    display: 'block',
+                                                    left: 0,
+                                                    width: '1px',
+                                                    bgcolor: 'divider',
+                                                },
+                                            }}
+                                        >
+                                            <Settings />
+                                            <ArrowRight
+                                                sx={{ position: 'absolute', right: 4, opacity: 0 }}
+                                            />
+                                        </IconButton>
+                                    </Tooltip>
+                                </ListItem> */}
                                 <Divider />
                                 <Box
                                     sx={{
@@ -118,7 +182,6 @@ export const Menu = ({ className }: MenuProps) => {
                                                 transition: '0.2s',
                                             }}
                                         />
-                                    {/* <Divider /> */}
                                     </ListItemButton>
                                     {open &&
                                         data.map((item) => (
