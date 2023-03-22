@@ -3,7 +3,7 @@ import styles from './App.module.scss';
 import { Menu } from './components/menu/menu';
 import { Container } from './components/container/container';
 import { Navbar } from './components/navbar/navbar';
-import { Post } from './components/post/post';
+import { Posts } from './components/posts/posts';
 
 function App() {
     return (
@@ -11,9 +11,7 @@ function App() {
             <Navbar />
             <Menu />
             <Container />
-            < Post />
-            < Post />
-            < Post />
+            <Posts />
         </div>
     );
 }
