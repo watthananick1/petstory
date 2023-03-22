@@ -1,0 +1,190 @@
+import styles from './post.module.scss';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+IconButton, 
+Link, 
+Card, 
+CardMedia,
+CardHeader,
+CardContent,
+CardActions,
+Avatar,
+styled,
+Collapse,
+Typography
+} from '@mui/material';
+import { IconButtonProps } from '@mui/material/IconButton';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import { useState } from 'react';
+
+
+export interface PostProps {
+    className?: string;
+    post: {
+        id: string;
+        firstName: string;
+        lastName: string;
+        Comment: object;
+        like: any[];
+        description: string;
+        tagpet: string[];
+        image: string;
+    };
+}
+
+interface ExpandMoreProps extends IconButtonProps {
+    expand: boolean;
+  }
+
+const ExpandMore = styled((props: ExpandMoreProps) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
+
+
+/**
+ * This component was created using Codux's Default new component template.
+ * To create custom component templates, see https://help.codux.com/kb/en/article/configuration-for-posts-and-templates
+ */
+export const Post = ({ className, post }: PostProps) => {
+    const [isLiked, setIsLiked] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+    
+    const handleLikeClick = () => {
+        setIsLiked(!isLiked); // toggle state value
+      };
+      
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+      };
+    
+    
+    return (
+        <div className={classNames(styles.root, className)}>
+            <Card sx={{ maxWidth: 345 }}>
+                <CardHeader 
+                   avatar={
+                    <Avatar aria-label="recipe">
+                      R
+                    </Avatar>
+                  }
+                  action={
+                    <IconButton aria-label="settings">
+                      <FontAwesomeIcon icon={faEllipsisV} size="sm" />
+                    </IconButton>
+                  }
+                  title="Shrimp and Chorizo Paella"
+                  subheader="September 14, 2016" 
+                />
+                <CardContent>
+                    <div className={styles.post_desc}>
+                        {post.description}
+                    </div>
+                    <span className={styles.post_Tag}>
+                        <div className={styles.post_Tag_Item}>#{post.tagpet}</div>
+                    </span>
+                </CardContent>
+                <CardMedia
+                    component="img"
+                    src="https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
+                    //image="/static/images/cards/paella.jpg"
+                />
+                <CardActions disableSpacing>
+                    <IconButton onClick={handleLikeClick} style={{ color: '#6200E8' }}>
+                        {isLiked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
+                    </IconButton>
+                    <Link href="#" underline="none" expand={expanded}
+                      onClick={handleExpandClick} >
+                        {'comment'}
+                    </Link>
+                    <ExpandMore
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      
+                      aria-label="comment"
+                    >
+
+                    </ExpandMore>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography paragraph>Comment</Typography>
+                            <Typography paragraph>
+                                Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+                                medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+                                occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
+                                large plate and set aside, leaving chicken and chorizo in the pan. Add
+                                pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
+                                stirring often until thickened and fragrant, about 10 minutes. Add
+                                saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+                            </Typography>
+                    </CardContent>
+                </Collapse>
+            </Card>
+            <div className={styles.icon_menu}>
+                <IconButton >
+                    <FontAwesomeIcon icon={faEllipsisV} size="sm" />
+                </IconButton>
+            </div>
+            <span className={styles.postTitleBox}>
+                <div className={styles.post_Pro_Img}>
+                    <img
+                        src="https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
+                        className={styles.imgProflie}
+                    />
+                </div>
+                <span className={styles.post_Name}>
+                    <div className={styles.post_Pro_name}>{post.firstName} {post.lastName}</div>
+                    <span className={styles.postTime}>
+                        <div className={styles.post_Num_Time}>8</div>
+                        <div>hr.</div>
+                    </span>
+                </span>
+            </span>
+            <span className={styles.post_Body}>
+                <div className={styles.post_desc}>
+                    {post.description}
+                </div>
+                <span className={styles.post_Tag}>
+                    <div className={styles.post_Tag_Item}>#{post.tagpet}</div>
+                </span>
+            </span>
+            <div className={styles.Post_Body_img}>
+                <CardMedia
+                    component="img"
+                    src="https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
+                    //image="/static/images/cards/paella.jpg"
+                />
+                <div className={styles.item_status}>
+                    <span className={styles.post_Body_Status}>
+                        <div className={styles.num_like}>100</div>
+                        <div className={styles.num_like}>Like</div>
+                    </span>
+                    <span className={styles.post_Body_Status}>
+                        <div className={styles.num_like}>2</div>
+                        <div className={styles.num_like}>Comment</div>
+                    </span>
+                </div>
+                <hr className={styles.post_Boby_hr} />
+            </div>
+            <span className={styles.post_Action}>
+                <IconButton onClick={handleLikeClick} style={{ color: '#6200E8' }}>
+                    {isLiked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
+                </IconButton>
+                <Link href="#" underline="none" >
+                    {'comment'}
+                </Link>
+            </span>
+        </div>
+    );
+};
