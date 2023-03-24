@@ -52,6 +52,50 @@ function Copyright(props: any) {
     );
 }
 
+function BirthDatePicker(props: any) {
+    return (
+        <TextField
+            id="dateOfBirth"
+            name="dateOfBirth"
+            label="Date of Birth"
+            type="date"
+            fullWidth
+            defaultValue="2000-01-01"
+            InputLabelProps={{
+                shrink: true,
+            }}
+            {...props}
+        />
+    );
+}
+
+function isInputValid(inputs: any) {
+    const { email, password, confirmPassword } = inputs;
+    if (!email || !password || !confirmPassword) {
+        return false;
+    }
+    if (password !== confirmPassword) {
+        return false;
+    }
+    return true;
+}
+
+function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const inputs = {
+        email: data.get('email'),
+        password: data.get('password'),
+        confirmPassword: data.get('confirmPassword'),
+        dayOfBirth: data.get('dayOfBirth'),
+    };
+    if (isInputValid(inputs)) {
+        console.log(inputs);
+    } else {
+        console.log('Invalid input.');
+    }
+}
+
 const theme = createTheme();
 
 export default function SignInSide() {
@@ -110,67 +154,87 @@ export default function SignInSide() {
                             <LockOutlinedIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Sign in
+                            Sign 
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type={showPassword ? 'text' : 'password'}
-                                id="password"
-                                autoComplete="current-password"
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <IconButton onClick={handlePasswordVisibility}>
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                            />
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
-                                label="Remember me"
-                            />
+                            <Grid container spacing={2}>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="given-name"
+                                        name="firstName"
+                                        required
+                                        fullWidth
+                                        id="firstName"
+                                        label="First Name"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="lastName"
+                                        label="Last Name"
+                                        name="lastName"
+                                        autoComplete="family-name"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        autoComplete="new-password"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="confirmPassword"
+                                        label="Confirm Password"
+                                        type="password"
+                                        id="confirmPassword"
+                                        autoComplete="new-password"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <BirthDatePicker />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox value="allowExtraEmails" color="primary" />
+                                        }
+                                        label="ฉันต้องการรับข้อเสนอ โปรโมชันทางการตลาด และการอัปเดตทางอีเมล"
+                                    />
+                                </Grid>
+                            </Grid>
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Sign In
+                                Sign Up
                             </Button>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={handleGoogleSignIn}
-                                fullWidth
-                            >
-                                Sign in with Google
-                            </Button>
-                            <Grid container>
-                                <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        Forgot password?
-                                    </Link>
-                                </Grid>
+                            <Grid container justifyContent="flex-end">
                                 <Grid item>
-                                    <Link href="/signUp" variant="body2">
-                                        {"Don't have an account? Sign Up"}
+                                    <Link href="#" variant="body2">
+                                        Already have an account? Sign in
                                     </Link>
                                 </Grid>
                             </Grid>

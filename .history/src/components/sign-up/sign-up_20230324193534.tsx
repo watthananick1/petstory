@@ -54,7 +54,7 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
+export default function SignUp() {
     const [showPassword, setShowPassword] = React.useState(false);
 
     const handlePasswordVisibility = () => {
@@ -169,7 +169,7 @@ export default function SignInSide() {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="/signUp" variant="body2">
+                                    <Link href="#" variant="body2">
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>

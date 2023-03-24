@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { IconButton, InputAdornment } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { deepPurple } from '@mui/material/colors';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -143,7 +144,7 @@ export default function SignInSide() {
                                 }}
                             />
                             <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
+                                control={<Checkbox value="remember" color= {deepPurple[A700]} />}
                                 label="Remember me"
                             />
                             <Button
@@ -169,7 +170,7 @@ export default function SignInSide() {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="/signUp" variant="body2">
+                                    <Link href="#" variant="body2">
                                         {"Don't have an account? Sign Up"}
                                     </Link>
                                 </Grid>

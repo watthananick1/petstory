@@ -52,6 +52,51 @@ function Copyright(props: any) {
     );
 }
 
+function BirthDatePicker(props: any) {
+    return (
+      <TextField
+        id="dateOfBirth"
+        name="dateOfBirth"
+        label="Date of Birth"
+        type="date"
+        fullWidth
+        defaultValue="2000-01-01"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        {...props}
+      />
+    );
+  }
+
+function isInputValid(inputs: any) {
+    const { email, password, confirmPassword } = inputs;
+    if (!email || !password || !confirmPassword) {
+      return false;
+    }
+    if (password !== confirmPassword) {
+      return false;
+    }
+    return true;
+  }
+  
+function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const inputs = {
+      email: data.get('email'),
+      password: data.get('password'),
+      confirmPassword: data.get('confirmPassword'),
+      dayOfBirth: data.get('dayOfBirth')
+    };
+    if (isInputValid(inputs)) {
+      console.log(inputs);
+    } else {
+      console.log("Invalid input.");
+    }
+  };
+
+
 const theme = createTheme();
 
 export default function SignInSide() {

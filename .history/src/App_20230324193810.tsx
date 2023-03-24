@@ -5,7 +5,7 @@ import { Container } from './components/container/container';
 import { Navbar } from './components/navbar/navbar';
 import { Posts } from './components/posts/posts';
 import Login from './components/login/login';
-import SignUp from './components/sign-up/sign-up';
+import SignUp from '../../../components/sign-up/sign-up';
 import { Route, Routes } from 'react-router';
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
         // </div>
         <div>
             <Routes>
-                {/* <Route id="login" path="/" element={<Login />} /> */}
-                <Route id="signUp" path="/" element={<SignUp />} />
-                {/* <Route path="/home" element={<Home />} /> */}
+                <Route id="login" path="/" element={<Login />} />
+                {/* <Route id="register" path="/register" element={<Register />} />
+                <Route path="/home" element={<Home />} /> */}
             </Routes>
         </div>
     );
