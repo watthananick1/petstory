@@ -88,7 +88,7 @@ export default function SignInSide() {
                     md={7}
                     sx={{
                         backgroundImage:
-                            'url(https://firebasestorage.googleapis.com/v0/b/pet-story-f51e3.appspot.com/o/mainData%2FloginImage1.jpg?alt=media&token=4547e22e-e032-4eb9-82fa-84551789d27e)',
+                            'url(https://l.facebook.com/l.php?u=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fpet-story-f51e3.appspot.com%2Fo%2FmainData%252FloginImage1.jpg%3Falt%3Dmedia%26token%3D4547e22e-e032-4eb9-82fa-84551789d27e%26fbclid%3DIwAR0mc_Q5MNF_5L5SDn6EpiKVxSal4vcZ2Yy9CkMruU1cqeIQtSVGUl8xAd8&h=AT2fgqlSDUhu2lhkZKaE7GbTRO58cN_ubGLKYlK7EY61btFvs_XodVMA5r5aifkiYCnlHfmHMBsNq_ht55TXRvOt6ka2hHy2OWK3gf0oGkColeCvyDw8cvkNLFtYh_VTivX7WF8vtjDTKagmjQJGnbxrOqE)',
                         backgroundRepeat: 'no-repeat',
                         backgroundColor: (t) =>
                             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
