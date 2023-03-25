@@ -1,0 +1,145 @@
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import ButtonBase from '@mui/material/ButtonBase';
+import Typography from '@mui/material/Typography';
+import { Card, CardContent, Paper } from '@mui/material';
+
+const images = [
+    {
+        url: 'https://firebasestorage.googleapis.com/v0/b/pet-story-f51e3.appspot.com/o/mainData%2FimgTypePet%2Fcat.jpg?alt=media&token=758765ef-8887-4d21-88d9-0f803717e977',
+        title: 'Cat',
+        width: '30%',
+    },
+    {
+        url: '/static/images/buttons/burgers.jpg',
+        title: 'Burgers',
+        width: '30%',
+    },
+    {
+        url: '/static/images/buttons/camera.jpg',
+        title: 'Camera',
+        width: '30%',
+    },
+];
+
+const ImageButton = styled(ButtonBase)(({ theme }) => ({
+    position: 'relative',
+    height: 200,
+    [theme.breakpoints.down('sm')]: {
+        width: '100% !important', // Overrides inline-style
+        height: '5%',
+    },
+    '&:hover, &.Mui-focusVisible': {
+        zIndex: 1,
+        '& .MuiImageBackdrop-root': {
+            opacity: 0.15,
+        },
+        '& .MuiImageMarked-root': {
+            opacity: 0,
+        },
+        '& .MuiTypography-root': {
+            border: '4px solid currentColor',
+        },
+    },
+}));
+
+const ImageSrc = styled('span')({
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center 40%',
+});
+
+const Image = styled('span')(({ theme }) => ({
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.common.white,
+}));
+
+const ImageBackdrop = styled('span')(({ theme }) => ({
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: theme.palette.common.black,
+    opacity: 0.4,
+    transition: theme.transitions.create('opacity'),
+}));
+
+// const ImageMarked = styled('span')(({ theme }) => ({
+//     height: 3,
+//     width: 18,
+//     backgroundColor: theme.palette.common.white,
+//     position: 'absolute',
+//     bottom: -2,
+//     left: 'calc(50% - 9px)',
+//     transition: theme.transitions.create('opacity'),
+// }));
+
+export default function CardTypePet() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', height: '100vh'}}>
+            <Card sx={{ minWidth: '50%', margin: '0 auto' }}>
+                <CardContent>
+                    <Typography gutterBottom variant="h5" style={{alignItems: 'center', textAlign: 'center'}} component="div">
+                    https://www.figma.com/file/9EEATdGn2tj1QaQMw4KYul/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A?node-id=29-1755&t=TSxRlTCnNiXdWARP-0
+                    </Typography>
+                </CardContent>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    '& > :not(style)': {
+                      m: 1,
+                      width: 128,
+                      height: 128,
+                    },
+                  }}
+                >
+                  <Paper elevation={3} />
+                </Box>
+                {/* <Box sx={{ display: 'flex',maxWidth: '100%', width: '100%' }}>
+                    {images.map((image) => (
+                        <ImageButton
+                            focusRipple
+                            key={image.title}
+                            style={{
+                                width: 'auto',
+                            }}
+                            onClick={() => console.log(`Clicked on ${image.title}`)}
+                        >
+                            <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                            <ImageBackdrop className="MuiImageBackdrop-root" />
+                            <Image>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                    color="inherit"
+                                    sx={{
+                                        position: 'relative',
+                                        p: 4,
+                                        pt: 2,
+                                        pb: (theme) => `calc(${theme.spacing(1)} + 2px)`,
+                                    }}
+                                >
+                                    {image.title}
+                                </Typography>
+                            </Image>
+                        </ImageButton>
+                    ))}
+                </Box> */}
+            </Card>
+        </div>
+    );
+}
