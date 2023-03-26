@@ -1,0 +1,14 @@
+.root {
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+  justify-content: space-between;
+  position: static;
+  margin: 1% 25% 0%;
+  align-content: end;
+  gap: 1px;
+  width: auto;
+  border-radius: 15px;
+}
