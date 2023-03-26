@@ -78,9 +78,6 @@ const Cards = () => {
     const [text, setText] = useState('');
     const [files, setFiles] = useState<File[]>([]);
     const [chipData, setChipData] = useState([]);
-    
-    
-      
 
     const storage = getStorage();
     
@@ -150,23 +147,19 @@ const Cards = () => {
 
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault();
-        const post = {
-            id: localStorage.getItem("userId")?.toString(),
-            firstName: "John",
-            lastName: "Doe",
-            description: text.toString(),
-            img: files,
-            tagpet: ["dog"],
-            like: [],
-            Comment: {},
-          };
+      
         // Upload pet post to Firestore database here
         try {
-            const docRef = await addDoc(collection(db, "Post"), {
-                ...post,
-                date: new Date(),
-              });
-              
+          const docRef = await addDoc(collection(db, "Post"), {
+            PetPost.firstName,
+            post.lastName,
+            post.description,
+            post.img,
+            post.tagpet,
+            post.like,
+            post.Comment,
+            date: new Date(),
+          });
           console.log("Pet post uploaded successfully with ID: ", docRef.id);
         } catch (error) {
           console.error("Error uploading pet post to Firestore: ", error);

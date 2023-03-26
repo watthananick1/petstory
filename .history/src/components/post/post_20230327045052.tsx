@@ -145,42 +145,43 @@ export const Post = ({ className, post }: PostProps) => {
         <div className={classNames(styles.root, className)}>
             <Card sx={{minWidth: "100%"}}>
             <CardHeader 
-                  avatar={
-                    <Avatar aria-label="recipe" sx={{ width: 48, height: 48 }}>
-                      <img 
-                        src={"https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"} 
-                        loading="lazy"
-                      />
-                    </Avatar>
-                  }
-                  action={
-                    <div>
-                      <IconButton aria-label="settings" onClick={handleClick}>
-                        <FontAwesomeIcon icon={faEllipsisV} size="sm" />
-                      </IconButton>
-                      <StyledMenu
-                        id="demo-customized-menu"
-                        MenuListProps={{
-                          'aria-labelledby': 'demo-customized-button',
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                      >
-                        <MenuItem onClick={handleClose} disableRipple>
-                          <EditIcon />
-                          Edit
-                        </MenuItem>
-                        <MenuItem onClick={handleClose} disableRipple>
-                          <FileCopyIcon />
-                          Duplicate
-                        </MenuItem>
-                      </StyledMenu>
-                    </div>
-                  }
-                  title={name}
-                  subheader={date} 
-                />
+  avatar={
+    <Avatar aria-label="recipe" sx={{ width: 48, height: 48 }}>
+      <img 
+        src={"https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"} 
+        loading="lazy"
+      />
+    </Avatar>
+  }
+  action={
+    <div>
+      <IconButton aria-label="settings" onClick={handleClick}>
+        <FontAwesomeIcon icon={faEllipsisV} size="sm" />
+      </IconButton>
+      <StyledMenu
+        id="demo-customized-menu"
+        MenuListProps={{
+          'aria-labelledby': 'demo-customized-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose} disableRipple>
+          <EditIcon />
+          Edit
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <FileCopyIcon />
+          Duplicate
+        </MenuItem>
+      </StyledMenu>
+    </div>
+  }
+  title={name}
+  subheader={date} 
+/>
+
                 <CardContent>
                     <div className={styles.post_desc}>
                         {post.description}

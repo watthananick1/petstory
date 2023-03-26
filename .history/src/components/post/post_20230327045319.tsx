@@ -36,16 +36,16 @@ export interface PostProps {
     className?: string;
     post: {
       id: string;
-      firstName: string;
-      lastName: string;
-      description: string;
-      img: string[];
-      tagpet: string[];
-      like: string[];
-      Comment: Record<string, never>;
-      date: {
-        _seconds: number;
-        _nanoseconds: number;
+  firstName: string;
+  lastName: string;
+  description: string;
+  img: string[];
+  tagpet: string[];
+  like: string[];
+  Comment: Record<string, never>;
+  date: {
+    _seconds: number;
+    _nanoseconds: number;
       };
     };
 }

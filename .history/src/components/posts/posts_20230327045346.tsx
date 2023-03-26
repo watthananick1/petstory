@@ -6,18 +6,17 @@ import Cards from '../cards/cards';
 import axios from 'axios';
 
 export interface PostData {
-    id: string;
-    firstName: string;
-    lastName: string;
-    description: string;
-    img: string[];
-    tagpet: string[];
-    like: string[];
-    Comment: Record<string, never>;
-    date: {
-      _seconds: number;
-      _nanoseconds: number;
-    };
+  id: string;
+  firstName: string;
+  lastName: string;
+  description: string;
+  img: string[];
+  tagpet: string[];
+  like: string[];
+  Comment: Record<string, never>;
+  date: {
+    _seconds: number;
+    _nanoseconds: number;
 }
 
 export interface PostsProps {

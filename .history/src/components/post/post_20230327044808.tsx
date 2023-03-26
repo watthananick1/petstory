@@ -144,13 +144,14 @@ export const Post = ({ className, post }: PostProps) => {
     return (
         <div className={classNames(styles.root, className)}>
             <Card sx={{minWidth: "100%"}}>
-            <CardHeader 
-                  avatar={
+                <CardHeader 
+                    //className={classNames(styles.post_Name, className)}
+                   avatar={
                     <Avatar aria-label="recipe" sx={{ width: 48, height: 48 }}>
                       <img 
                         src={"https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"} 
                         loading="lazy"
-                      />
+                        />
                     </Avatar>
                   }
                   action={
@@ -175,11 +176,14 @@ export const Post = ({ className, post }: PostProps) => {
                           <FileCopyIcon />
                           Duplicate
                         </MenuItem>
+                        {/* <Divider sx={{ my: 0.5 }} /> */}
+                        
                       </StyledMenu>
                     </div>
                   }
-                  title={name}
-                  subheader={date} 
+                  
+                  title= {name}
+                  subheader= {date} 
                 />
                 <CardContent>
                     <div className={styles.post_desc}>

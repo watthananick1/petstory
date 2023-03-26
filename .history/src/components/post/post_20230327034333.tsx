@@ -35,36 +35,16 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 export interface PostProps {
     className?: string;
     post: {
-      id: string;
-      firstName: string;
-      lastName: string;
-      description: string;
-      img: string[];
-      tagpet: string[];
-      like: string[];
-      Comment: Record<string, never>;
-      date: {
-        _seconds: number;
-        _nanoseconds: number;
-      };
+        id: string;
+        firstName: string;
+        lastName: string;
+        Comment: object;
+        like: any[];
+        description: string;
+        tagpet: string[];
+        img: string[];
     };
 }
-
-interface PetPost {
-  id: string;
-  firstName: string;
-  lastName: string;
-  description: string;
-  img: string[];
-  tagpet: string[];
-  like: string[];
-  Comment: Record<string, never>;
-  date: {
-    _seconds: number;
-    _nanoseconds: number;
-  };
-}
-
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -120,6 +100,8 @@ export const Post = ({ className, post }: PostProps) => {
     const [isLiked, setIsLiked] = useState(false);
     const [expanded, setExpanded] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [petType, setPetType] = useState('');
+
 
 
     
@@ -139,18 +121,18 @@ export const Post = ({ className, post }: PostProps) => {
         setExpanded(!expanded);
       };
     const name = post.firstName+" "+post.lastName;
-    const date = (post.date ? new Date(post.date._seconds * 1000) : null)?.toDateString();
-
+    
     return (
         <div className={classNames(styles.root, className)}>
             <Card sx={{minWidth: "100%"}}>
-            <CardHeader 
-                  avatar={
+                <CardHeader 
+                    //className={classNames(styles.post_Name, className)}
+                   avatar={
                     <Avatar aria-label="recipe" sx={{ width: 48, height: 48 }}>
                       <img 
                         src={"https://wixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"} 
                         loading="lazy"
-                      />
+                        />
                     </Avatar>
                   }
                   action={
@@ -175,11 +157,14 @@ export const Post = ({ className, post }: PostProps) => {
                           <FileCopyIcon />
                           Duplicate
                         </MenuItem>
+                        {/* <Divider sx={{ my: 0.5 }} /> */}
+                        
                       </StyledMenu>
                     </div>
                   }
-                  title={name}
-                  subheader={date} 
+                  
+                  title= {name}
+                  subheader="September 14, 2016" 
                 />
                 <CardContent>
                     <div className={styles.post_desc}>
@@ -224,10 +209,12 @@ export const Post = ({ className, post }: PostProps) => {
                     <CardContent>
                         <Typography paragraph>Comment</Typography>
                             <Typography paragraph>
+                                
                             </Typography>
                     </CardContent>
                 </Collapse>
             </Card>
+            
         </div>
     );
 };

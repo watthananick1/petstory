@@ -6,6 +6,7 @@ import Cards from '../cards/cards';
 import axios from 'axios';
 
 export interface PostData {
+  {
     id: string;
     firstName: string;
     lastName: string;

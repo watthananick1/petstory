@@ -1,6 +1,6 @@
 import styles from './cards.module.scss';
 import classNames from 'classnames';
-import { ChangeEventHandler, SetStateAction, useEffect, useState } from 'react';
+import { ChangeEventHandler, SetStateAction, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
@@ -15,43 +15,12 @@ import 'firebase/compat/firestore';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
-import axios from 'axios';
-
-
 
 const Input = styled('input')({
     display: 'none',
 });
 
-interface PetPost {
-    id: string;
-    firstName: string;
-    lastName: string;
-    description: string;
-    img: string[];
-    tagpet: string[];
-    like: string[];
-    Comment: Record<string, never>;
-    date: {
-      _seconds: number;
-      _nanoseconds: number;
-    };
-  }
-  
 
-const firebaseConfig = {
-    apiKey: 'AIzaSyCFUBWxesLk-BX8KwwQfaI8Gs3cUCcBVWA',
-    authDomain: 'pet-story-f51e3.firebaseapp.com',
-    databaseURL: 'https://pet-story-f51e3-default-rtdb.asia-southeast1.firebasedatabase.app',
-    projectId: 'pet-story-f51e3',
-    storageBucket: 'pet-story-f51e3.appspot.com',
-    messagingSenderId: '576128138584',
-    appId: '1:576128138584:web:c52f7384461830b1eeb92d',
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
 
 const isMobileDevice = () => {
     const ua = navigator.userAgent;
@@ -77,25 +46,7 @@ const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 const Cards = () => {
     const [text, setText] = useState('');
     const [files, setFiles] = useState<File[]>([]);
-    const [chipData, setChipData] = useState([]);
-    
-    
-      
-
     const storage = getStorage();
-    
-    useEffect(() => {
-        fetch('http://localhost:4000/typePet')
-          .then((response) => response.json())
-          .then((data) => {
-            const newData = data.map((item: { id: any; nameType: any; }) => ({
-              key: item.id,
-              label: item.nameType,
-            }));
-            setChipData(newData);
-          });
-      }, []);
-      
 
     const fileUploadSupported = isFileUploadSupported();
     if (fileUploadSupported) {
@@ -150,47 +101,35 @@ const Cards = () => {
 
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault();
-        const post = {
-            id: localStorage.getItem("userId")?.toString(),
-            firstName: "John",
-            lastName: "Doe",
-            description: text.toString(),
-            img: files,
-            tagpet: ["dog"],
-            like: [],
-            Comment: {},
-          };
-        // Upload pet post to Firestore database here
+    
+        // Upload text to Firestore database here
         try {
             const docRef = await addDoc(collection(db, "Post"), {
-                ...post,
-                date: new Date(),
-              });
-              
-          console.log("Pet post uploaded successfully with ID: ", docRef.id);
-        } catch (error) {
-          console.error("Error uploading pet post to Firestore: ", error);
-        }
-      
+              text: text,
+            });
+            console.log("Text uploaded successfully with ID: ", docRef.id);
+          } catch (error) {
+            console.error("Error uploading text to Firestore: ", error);
+          }
+    
         // Upload files to Firebase Storage
         const promises = files.map(async (file) => {
-          const storageRef = ref(storage, "images/" + file.name);
-          const snapshot = await uploadBytes(storageRef, file);
-          console.log("File uploaded successfully", snapshot);
+            const storageRef = ref(storage, file.name);
+            const snapshot = await uploadBytes(storageRef, file);
+            console.log("File uploaded successfully", snapshot);
         });
-      
+    
         try {
-          await Promise.all(promises);
-          console.log("All files uploaded successfully");
+            await Promise.all(promises);
+            console.log("All files uploaded successfully");
         } catch (error) {
-          console.error("Error uploading files to Firebase Storage", error);
+            console.error("Error uploading files to Firebase Storage", error);
         }
-      
+    
         // Clear text and files state after uploading
         setText("");
         setFiles([]);
-      };
-      
+    };
 
     return (
         <Box

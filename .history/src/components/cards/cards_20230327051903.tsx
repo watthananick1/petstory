@@ -155,7 +155,7 @@ const Cards = () => {
             firstName: "John",
             lastName: "Doe",
             description: text.toString(),
-            img: files,
+            img: ["https://example.com/image.jpg"],
             tagpet: ["dog"],
             like: [],
             Comment: {},

@@ -79,7 +79,15 @@ const Cards = () => {
     const [files, setFiles] = useState<File[]>([]);
     const [chipData, setChipData] = useState([]);
     
-    
+    const post = {
+        firstName: "John",
+        lastName: "Doe",
+        description: "My pet is so cute!",
+        img: ["https://example.com/image.jpg"],
+        tagpet: ["dog"],
+        like: [],
+        Comment: {},
+      };
       
 
     const storage = getStorage();
@@ -150,16 +158,7 @@ const Cards = () => {
 
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault();
-        const post = {
-            id: localStorage.getItem("userId")?.toString(),
-            firstName: "John",
-            lastName: "Doe",
-            description: text.toString(),
-            img: files,
-            tagpet: ["dog"],
-            like: [],
-            Comment: {},
-          };
+      
         // Upload pet post to Firestore database here
         try {
             const docRef = await addDoc(collection(db, "Post"), {

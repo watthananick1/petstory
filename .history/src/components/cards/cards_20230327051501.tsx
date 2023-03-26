@@ -151,11 +151,11 @@ const Cards = () => {
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault();
         const post = {
-            id: localStorage.getItem("userId")?.toString(),
+            id: ""
             firstName: "John",
             lastName: "Doe",
-            description: text.toString(),
-            img: files,
+            description: "My pet is so cute!",
+            img: ["https://example.com/image.jpg"],
             tagpet: ["dog"],
             like: [],
             Comment: {},

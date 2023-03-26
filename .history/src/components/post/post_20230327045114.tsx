@@ -181,6 +181,7 @@ export const Post = ({ className, post }: PostProps) => {
                   title={name}
                   subheader={date} 
                 />
+
                 <CardContent>
                     <div className={styles.post_desc}>
                         {post.description}

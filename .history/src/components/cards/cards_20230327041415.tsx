@@ -23,22 +23,6 @@ const Input = styled('input')({
     display: 'none',
 });
 
-interface PetPost {
-    id: string;
-    firstName: string;
-    lastName: string;
-    description: string;
-    img: string[];
-    tagpet: string[];
-    like: string[];
-    Comment: Record<string, never>;
-    date: {
-      _seconds: number;
-      _nanoseconds: number;
-    };
-  }
-  
-
 const firebaseConfig = {
     apiKey: 'AIzaSyCFUBWxesLk-BX8KwwQfaI8Gs3cUCcBVWA',
     authDomain: 'pet-story-f51e3.firebaseapp.com',
@@ -78,9 +62,6 @@ const Cards = () => {
     const [text, setText] = useState('');
     const [files, setFiles] = useState<File[]>([]);
     const [chipData, setChipData] = useState([]);
-    
-    
-      
 
     const storage = getStorage();
     
@@ -90,7 +71,7 @@ const Cards = () => {
           .then((data) => {
             const newData = data.map((item: { id: any; nameType: any; }) => ({
               key: item.id,
-              label: item.nameType,
+              label: item.name,
             }));
             setChipData(newData);
           });
@@ -150,47 +131,35 @@ const Cards = () => {
 
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault();
-        const post = {
-            id: localStorage.getItem("userId")?.toString(),
-            firstName: "John",
-            lastName: "Doe",
-            description: text.toString(),
-            img: files,
-            tagpet: ["dog"],
-            like: [],
-            Comment: {},
-          };
-        // Upload pet post to Firestore database here
+    
+        // Upload text to Firestore database here
         try {
             const docRef = await addDoc(collection(db, "Post"), {
-                ...post,
-                date: new Date(),
-              });
-              
-          console.log("Pet post uploaded successfully with ID: ", docRef.id);
-        } catch (error) {
-          console.error("Error uploading pet post to Firestore: ", error);
-        }
-      
+              text: text,
+            });
+            console.log("Text uploaded successfully with ID: ", docRef.id);
+          } catch (error) {
+            console.error("Error uploading text to Firestore: ", error);
+          }
+    
         // Upload files to Firebase Storage
         const promises = files.map(async (file) => {
-          const storageRef = ref(storage, "images/" + file.name);
-          const snapshot = await uploadBytes(storageRef, file);
-          console.log("File uploaded successfully", snapshot);
+            const storageRef = ref(storage, "images/" + file.name);
+            const snapshot = await uploadBytes(storageRef, file);
+            console.log("File uploaded successfully", snapshot);
         });
-      
+    
         try {
-          await Promise.all(promises);
-          console.log("All files uploaded successfully");
+            await Promise.all(promises);
+            console.log("All files uploaded successfully");
         } catch (error) {
-          console.error("Error uploading files to Firebase Storage", error);
+            console.error("Error uploading files to Firebase Storage", error);
         }
-      
+    
         // Clear text and files state after uploading
         setText("");
         setFiles([]);
-      };
-      
+    };
 
     return (
         <Box
