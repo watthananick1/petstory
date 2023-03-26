@@ -1,0 +1,147 @@
+.root {
+  width: 100%;
+  
+  position: fixed;
+  z-index: 1;
+  background-color: #6200E8;
+}
+.navberTop {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  padding: 10px;
+  position: sticky;
+  justify-content: space-between;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+.logo {
+  margin: 0rem 10% 0rem 0rem;
+  display: flex;
+  color: #6309de;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+.navberCon {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  //gap: 20px;
+  overflow: visible;
+  //position: sticky;
+  flex-wrap: nowrap;
+  justify-content: end;
+  //left: 60%;
+  min-height: 35px;
+  margin-left: 0px;
+}
+.iconImg {
+  font-size: auto;
+  display: flex;
+  overflow: auto;
+  width: auto;
+  margin: 0px;
+  align-items: center;
+  height: auto;
+  justify-items: center;
+  min-width: auto;
+  min-height: auto;
+  max-height: 30px;
+  max-width: 30px;
+}
+.imgProfile {
+  min-width: 0px;
+  min-height: 0px;
+  max-width: 39px;
+  max-height: 39px;
+  border-radius: 20px;
+  width: 39px;
+  height: 39px;
+}
+.nav_img_Profile {
+  border-radius: 15px;
+}
+/* Styles for screens smaller than 768px */
+@media (max-width: 767px) {
+  .navberTop {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .navberCon {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    //padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    //transition: opacity 0.3s ease-in-out;
+  }
+
+  .navberCon.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navberCon a {
+    margin: 0px 0;
+  }
+
+  .navberCon a:first-child {
+    margin-top: 0;
+  }
+
+  .iconImg {
+    max-height: 24px;
+    max-width: 24px;
+  }
+}
+.appBar.MuiAppBar-root {
+  background-color: #6200E8;
+}
+
+/* Styles for screens larger than 768px */
+@media (min-width: 768px) {
+  .navberTop {
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .navberCon {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    margin-left: 20px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navberCon a {
+    margin: 0;
+  }
+
+  .iconImg {
+    max-height: 30px;
+    max-width: 30px;
+  }
+}
