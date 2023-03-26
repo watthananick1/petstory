@@ -1,0 +1,21 @@
+.root {
+  // overflow: visible;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: start;
+  // justify-items: center;
+  // justify-content: space-between;
+  // position: static;
+  // margin: 10% 25% 0%;
+  // align-content: end;
+  // gap: 1px;
+  top: 20%;
+  // border-radius: 15px;
+}
+
+.deleteIcon {
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  cursor: pointer;
+}

@@ -1,0 +1,211 @@
+import styles from './cards.module.scss';
+import classNames from 'classnames';
+import { ChangeEventHandler, SetStateAction, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
+import { Grid } from '@mui/material';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+
+const Input = styled('input')({
+    display: 'none',
+});
+
+const isMobileDevice = () => {
+    const ua = navigator.userAgent;
+    return /Android|Mobi/i.test(ua);
+  };
+  
+  const isFileUploadSupported = () => {
+    let element = document.createElement('input');
+    element.type = 'file';
+    return (
+      !element.disabled &&
+      typeof element.multiple === 'boolean' &&
+      typeof FileReader !== 'undefined' &&
+      typeof window.URL !== 'undefined' &&
+      typeof window.URL.createObjectURL === 'function'
+    );
+  }
+  
+  
+  
+  
+
+const MAX_FILES = 6;
+const MAX_IMAGE_FILES = 5 * 1024 * 1024; // 5MB
+const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
+
+const Cards = () => {
+    const [text, setText] = useState('');
+    const [files, setFiles] = useState<File[]>([]);
+    const [selectedFileIndex, setSelectedFileIndex] = useState(-1);
+    const [cameraPermission, setCameraPermission] = useState(null);
+
+    const fileUploadSupported = isFileUploadSupported();
+    if (fileUploadSupported) {
+        console.log('File upload is supported.');
+      } else {
+        console.log('File upload is not supported.');
+      }
+
+    const handleTextChange = (event: { target: { value: string } }) => {
+        setText(event.target.value);
+    };
+
+    const handleFileChange = (event) => {
+        const newFiles = [...files];
+        const selectedFiles = Array.from(event.target.files);
+      
+        if (cameraPermission === 'granted') {
+          newFiles.push(...selectedFiles);
+        } else {
+          setCameraPermission(null);
+      
+          try {
+            navigator.permissions.query({ name: 'camera' }).then((result) => {
+              if (result.state === 'granted') {
+                setCameraPermission('granted');
+                newFiles.push(...selectedFiles);
+              } else if (result.state === 'prompt') {
+                result.onchange = () => {
+                  if (result.state === 'granted') {
+                    setCameraPermission('granted');
+                    newFiles.push(...selectedFiles);
+                  } else {
+                    setCameraPermission('denied');
+                  }
+                };
+              } else {
+                setCameraPermission('denied');
+              }
+            });
+          } catch (error) {
+            setCameraPermission('denied');
+          }
+        }
+      
+        setFiles(newFiles);
+      };
+      
+
+    const handleImageDelete = (index: number) => {
+        setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    };
+
+    const handleVideoDelete = (index: number) => {
+        setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    };
+
+    const handleSubmit = (event: { preventDefault: () => void }) => {
+        event.preventDefault();
+        // your post submission logic goes here
+        setText('');
+        setFiles([]);
+    };
+
+    return (
+        <Box
+            sx={{
+                position: 'static',
+                maxWidth: '100%',
+                width: '47%',
+                margin: '0 auto',
+                border: '1px solid #ddd',
+                borderRadius: '10px',
+                p: 2,
+                mb: 2,
+                bgcolor: '#fff',
+            }}
+        >
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <img
+                    src="https://picsum.photos/200/200"
+                    alt="avatar"
+                    style={{ borderRadius: '50%', width: '48px', height: '48px' }}
+                />
+                <TextField
+                    sx={{ marginLeft: 2 }}
+                    multiline
+                    minRows={2}
+                    maxRows={4}
+                    placeholder="What's on your mind?"
+                    value={text}
+                    onChange={handleTextChange}
+                    fullWidth
+                    InputProps={{
+                        disableUnderline: true,
+                    }}
+                />
+            </Box>
+            <Grid container spacing={2}>
+        {files.slice(0, 6).map((file, index) => (
+          <Grid key={index} item xs={4}>
+            {file.type.startsWith('image/') && (
+              <>
+                <img
+                  src={URL.createObjectURL(file)}
+                  alt={`media-preview-${index}`}
+                  style={{ maxWidth: '100%', maxHeight: '200px' }}
+                />
+                <div className={styles.deleteIcon} onClick={() => handleImageDelete(index)}>
+                  <DeleteIcon />
+                </div>
+              </>
+            )}
+            {file.type.startsWith('video/') && (
+              <>
+                <video controls style={{ maxWidth: '100%', maxHeight: '200px' }}>
+                  <source src={URL.createObjectURL(file)} type={file.type} />
+                  Your browser does not support the video tag.
+                </video>
+                <div className={styles.deleteIcon} onClick={() => handleVideoDelete(index)}>
+                  <DeleteIcon />
+                </div>
+              </>
+            )}
+          </Grid>
+        ))}
+            </Grid>
+            <Box
+                component="form"
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    mt: 2,
+                    borderTop: '1px solid #eee',
+                    paddingTop: 2,
+                }}
+                onSubmit={handleSubmit}
+            >
+                <label htmlFor="file-input">
+                    <Input
+                        id="file-input"
+                        type="file"
+                        accept="image/*, video/*"
+                        onChange={handleFileChange}
+                        multiple={true}
+                    />
+                    <IconButton color="primary" aria-label="upload picture" component="span">
+                        <PhotoCamera />
+                    </IconButton>
+                </label>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    disabled={!text && !files.length}
+                    type="submit"
+                >
+                    Post
+                </Button>
+            </Box>
+        </Box>
+    );
+};
+
+export default Cards;
