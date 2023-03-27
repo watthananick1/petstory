@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10% 25% 0%;
+  gap: 1px;
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    margin: 10% 10% 0%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .root {
+    margin: 10% 5% 0%;
+  }
+}
+
+.deleteIcon {
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  cursor: pointer;
+}
