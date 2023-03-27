@@ -1,7 +1,7 @@
 import logo from './assets/logo.svg';
 import styles from './App.module.scss';
 import Login from './components/login/login';
-import SignUp from './components/signup/signup';
+import SignUp from './components/sign-up/signup';
 import CardTypePet from './components/card-type-pet/card-type-pet';
 import { Home } from './components/home/home';
 import { Route, Routes } from 'react-router';

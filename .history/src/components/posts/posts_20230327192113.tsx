@@ -35,7 +35,7 @@ export const Posts = ({ className }: PostsProps) => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get<PostData[]>(
-          'http://20.222.70.156:4000/posts',
+          // 'http://20.222.70.156:4000/posts',
           
           {
             withCredentials: true,
@@ -95,9 +95,10 @@ export const Posts = ({ className }: PostsProps) => {
     >
       < Cards />
       {refreshing && <div>Refreshing...</div>}
-      {posts.map((post) => (
-        <Post key={post.date._nanoseconds} post={post} />
+      {posts.map((post, index) => (
+        <Post key={index} post={post} />
       ))}
+
     </div>
   );
 };

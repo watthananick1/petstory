@@ -199,7 +199,7 @@ const Cards = ({ className }: CardsProps) => {
           console.log("All files uploaded successfully");
         
           // Get user data from API endpoint
-          const userDataResponse = await axios.get('http://20.222.70.156:4000/users/' + userId);
+          const userDataResponse = await axios.get(`http://20.222.70.156:4000/users/{userId});
           const userData = userDataResponse.data;
           console.log("userData:", userData);
           // Create a new document in the Post collection with a unique ID

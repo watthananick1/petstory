@@ -122,9 +122,9 @@ const Cards = ({ className }: CardsProps) => {
 
     const fileUploadSupported = isFileUploadSupported();
     if (fileUploadSupported) {
-        //console.log('File upload is supported.');
+        console.log('File upload is supported.');
     } else {
-        //console.log('File upload is not supported.');
+        console.log('File upload is not supported.');
     }
 
     const handleTextChange = (event: { target: { value: string } }) => {
@@ -199,23 +199,23 @@ const Cards = ({ className }: CardsProps) => {
           console.log("All files uploaded successfully");
         
           // Get user data from API endpoint
-          const userDataResponse = await axios.get('http://20.222.70.156:4000/users/' + userId);
+          const userDataResponse = await axios.get(`http://20.222.70.156:4000/users/${userId}`);
           const userData = userDataResponse.data;
           console.log("userData:", userData);
           // Create a new document in the Post collection with a unique ID
-          const id = userId;
           const now = new Date();
           const timestamp = {
             _seconds: Math.floor(now.getTime() / 1000),
             _nanoseconds: now.getMilliseconds() * 1000000
+         const 
           };
-          console.log('id:' +  id);
+        
           // Update the post data with the new values
           const newPost: PetPost = {
             description: text.toString(),
             tagpet: selectedTags,
             img: fileUrls,
-            id: id,
+            id: userId,
             firstName: userData.firstName,
             lastName: userData.lastName,
             like: [],
@@ -242,7 +242,7 @@ const Cards = ({ className }: CardsProps) => {
         setText("");
         setFiles([]);
         
-        //window.location.reload();
+        window.location.reload();
       };
       
       const handleDeleteTag = (tagToDelete: string) => {

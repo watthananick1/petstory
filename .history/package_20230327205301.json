@@ -3,6 +3,13 @@
   "version": "1.0.0",
 
   "private": true,
+  "devDependencies": {
+    "react-scripts": "1.1.4"
+  },
+  "dependencies": {},
+  "scripts": {
+      "deploy-dev": "cross-env yarn dev && ./deploy-dev.bat",
+  }
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

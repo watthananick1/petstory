@@ -107,18 +107,18 @@ export default function SignUp() {
 
                 const { user } = credential;
 
-                const googleCredential = await firebase.auth().getRedirectResult();
-                if (googleCredential.user) {
-                    const { displayName, email } = googleCredential.user;
-                    const userData = {
-                        firstName: displayName?.split(' ')[0],
-                        lastName: displayName?.split(' ')[1],
-                        email,
-                        signUpMethod: 'google',
-                    };
+                // const googleCredential = await firebase.auth().getRedirectResult();
+                // if (googleCredential.user) {
+                //     const { displayName, email } = googleCredential.user;
+                //     const userData = {
+                //         firstName: displayName?.split(' ')[0],
+                //         lastName: displayName?.split(' ')[1],
+                //         email,
+                //         signUpMethod: 'google',
+                //     };
 
-                    await db.collection('Users').doc(googleCredential.user.uid).set(userData);
-                }
+                //     await db.collection('Users').doc(googleCredential.user.uid).set(userData);
+                // }
 
                 if (user && user.uid) {
                     const userData = {
@@ -131,7 +131,7 @@ export default function SignUp() {
 
                     await db.collection('Users').doc(user.uid).set(userData);
                     localStorage.setItem('userId', user.uid);
-                    navigate('/typePet'); 
+                    navigate('/typepet'); 
                 }
             } else {
                 console.log('Invalid input.');
@@ -297,7 +297,7 @@ export default function SignUp() {
                             </Button>
                             <Grid container justifyContent="flex-end">
                                 <Grid item>
-                                    <Link href="#" variant="body2">
+                                    <Link href="/" variant="body2">
                                         มีบัญชีอยู่แล้วหรือไม่? เข้าสู่ระบบ
                                     </Link>
                                 </Grid>

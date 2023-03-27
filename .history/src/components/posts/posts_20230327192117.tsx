@@ -95,9 +95,10 @@ export const Posts = ({ className }: PostsProps) => {
     >
       < Cards />
       {refreshing && <div>Refreshing...</div>}
-      {posts.map((post) => (
-        <Post key={post.date._nanoseconds} post={post} />
+      {posts.map((post, index) => (
+        <Post key={index} post={post} />
       ))}
+
     </div>
   );
 };

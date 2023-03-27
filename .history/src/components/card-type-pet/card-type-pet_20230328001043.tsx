@@ -10,7 +10,6 @@ import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
 // import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
 
 
 const firebaseConfig = {
@@ -106,7 +105,6 @@ interface TypePets {
 
 
 export default function CardTypePet() {
-  const navigate = useNavigate();
   const [interestedTypes, setInterestedTypes] = React.useState<InterestedTypes>({});
   const [typePetList, setTypePetList] = React.useState<TypePet>([]);
   const [typePet, setTypePets] = React.useState<TypePets>();

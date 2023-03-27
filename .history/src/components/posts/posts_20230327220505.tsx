@@ -68,6 +68,7 @@ export const Posts = ({ className }: PostsProps) => {
           'http://20.222.70.156:4000/posts',
           {
             withCredentials: true,
+            'Content-Type': 'text/plain'
           }
         );
         console.log(response.data);
@@ -95,9 +96,10 @@ export const Posts = ({ className }: PostsProps) => {
     >
       < Cards />
       {refreshing && <div>Refreshing...</div>}
-      {posts.map((post) => (
-        <Post key={post.date._nanoseconds} post={post} />
+      {posts.map((post, index) => (
+        <Post key={index} post={post} />
       ))}
+
     </div>
   );
 };

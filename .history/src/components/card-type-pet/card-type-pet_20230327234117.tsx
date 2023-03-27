@@ -10,7 +10,6 @@ import axios from 'axios';
 import SendIcon from '@mui/icons-material/Send';
 // import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
 
 
 const firebaseConfig = {
@@ -106,7 +105,6 @@ interface TypePets {
 
 
 export default function CardTypePet() {
-  const navigate = useNavigate();
   const [interestedTypes, setInterestedTypes] = React.useState<InterestedTypes>({});
   const [typePetList, setTypePetList] = React.useState<TypePet>([]);
   const [typePet, setTypePets] = React.useState<TypePets>();
@@ -149,7 +147,7 @@ export default function CardTypePet() {
             withCredentials: true,
           }
         );
-        console.log(response.data);
+        // console.log(response.data);
         setTypePetList(response.data);
       } catch (error) {
         console.log(error);
@@ -171,7 +169,6 @@ export default function CardTypePet() {
     axios.put(url, { typePets: dataArray })
       .then((response) => {
         console.log('Successfully updated interested types:', response.data);
-        navigate('/home');
       })
       .catch((error) => {
         console.log('Error updating interested types:', error);
